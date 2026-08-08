@@ -1,45 +1,76 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# image will be published to ghcr.io/<user>/<name>
 name: mithril
-# description will be included in the image's metadata
-description: This is my personal OS image.
+description: My modification of Fedora Silverblue.
+base-image: ghcr.io/ublue-os/silverblue-nvidia
+image-version: 44
 
-# the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 42 # latest is also supported if you want new updates ASAP
-
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
   - type: files
     files:
       - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+        destination: /
+      - source: wallpapers
+        destination: /usr/share/backgrounds
+
+  - type: akmods
+      install:
+        - xone
 
   - type: dnf
-    repos:
-      copr:
-        - atim/starship
-    install:
+      install:
       packages:
-        - micro
-        - starship
-    remove:
+        - steam
+      remove:
       packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+        - firefox-langpacks
+        - gnome-tour
+        - gnome-classic-session
+        - gnome-shell-extension-apps-menu
+        - gnome-shell-extension-background-logo
+        - gnome-shell-extension-launch-new-instance
+        - gnome-shell-extension-places-menu
+        - gnome-shell-extension-window-list
+        - gnome-extensions-app
+        - gnome-weather
+        - yelp
+        - yelp-libs
+        - yelp-tools
+        - yelp-xsl
+        - yelp-xsl-devel
+
+  - type: gnome-extensions
+      install:
+        - 3628 # ArcMenu
+        - 16 # Auto Move Windows
+        - 3193 # Blur my Shell
+        - 10070 # ChromaLeon
+        - 3210 # Compiz window effect
+        - 1160 # Dash to Panel
+        - 3843 # Just Perfection
+
+  - type: fonts
+      fonts:
+      google-fonts:
+        - SUSE
+        - Lato
+        - JetBrains Mono
 
   - type: default-flatpaks
     configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
+      - notify: false
         scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
+        install:
           - org.mozilla.firefox
+          - org.mozilla.thunderbird
+          - com.mattjakeman.ExtensionManager
+          - page.tesk.Refine
           - org.gnome.Loupe
-      - scope: user # Also add Flathub user repo, but no user packages
+          - io.github.celluloid_player.Celluloid
+          - com.toolstack.Folio
+          - org.gnome.World.PikaBackup
+          - org.fooyin.fooyin
+      - scope: user
 
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing
