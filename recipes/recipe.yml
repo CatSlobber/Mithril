@@ -56,11 +56,11 @@ modules:
       - 3843 # Just Perfection
 
   - type: fonts
-      fonts:
-        google-fonts:
-          - SUSE
-          - Lato
-          - JetBrains Mono
+    fonts:
+      google-fonts:
+        - SUSE
+        - Lato
+        - JetBrains Mono
 
   - type: default-flatpaks
     configurations:
