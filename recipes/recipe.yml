@@ -46,21 +46,21 @@ modules:
         - yelp-xsl-devel
 
   - type: gnome-extensions
-      install:
-        - 3628 # ArcMenu
-        - 16 # Auto Move Windows
-        - 3193 # Blur my Shell
-        - 10070 # ChromaLeon
-        - 3210 # Compiz window effect
-        - 1160 # Dash to Panel
-        - 3843 # Just Perfection
+    install:
+      - 3628 # ArcMenu
+      - 16 # Auto Move Windows
+      - 3193 # Blur my Shell
+      - 10070 # ChromaLeon
+      - 3210 # Compiz window effect
+      - 1160 # Dash to Panel
+      - 3843 # Just Perfection
 
   - type: fonts
       fonts:
-      google-fonts:
-        - SUSE
-        - Lato
-        - JetBrains Mono
+        google-fonts:
+          - SUSE
+          - Lato
+          - JetBrains Mono
 
   - type: default-flatpaks
     configurations:
