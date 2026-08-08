@@ -7,15 +7,15 @@ image-version: 44
 
 modules:
   - type: files
-      files:
-        - source: system
-          destination: /
-        - source: wallpapers
-          destination: /usr/share/backgrounds
-        - source: sounds
-          destination: /usr/share/themes
-        - source: cursors
-          destination: /usr/share/icons
+    files:
+      - source: system
+        destination: /
+      - source: wallpapers
+        destination: /usr/share/backgrounds
+      - source: sounds
+        destination: /usr/share/themes
+      - source: cursors
+        destination: /usr/share/icons
 
   - type: akmods
       base: main
