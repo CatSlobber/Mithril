@@ -24,26 +24,26 @@ modules:
 
   - type: dnf
       install:
-      packages:
-        - steam
+        packages:
+          - steam
       remove:
-      packages:
-        - firefox
-        - firefox-langpacks
-        - gnome-tour
-        - gnome-classic-session
-        - gnome-shell-extension-apps-menu
-        - gnome-shell-extension-background-logo
-        - gnome-shell-extension-launch-new-instance
-        - gnome-shell-extension-places-menu
-        - gnome-shell-extension-window-list
-        - gnome-extensions-app
-        - gnome-weather
-        - yelp
-        - yelp-libs
-        - yelp-tools
-        - yelp-xsl
-        - yelp-xsl-devel
+        packages:
+          - firefox
+          - firefox-langpacks
+          - gnome-tour
+          - gnome-classic-session
+          - gnome-shell-extension-apps-menu
+          - gnome-shell-extension-background-logo
+          - gnome-shell-extension-launch-new-instance
+          - gnome-shell-extension-places-menu
+          - gnome-shell-extension-window-list
+          - gnome-extensions-app
+          - gnome-weather
+          - yelp
+          - yelp-libs
+          - yelp-tools
+          - yelp-xsl
+          - yelp-xsl-devel
 
   - type: gnome-extensions
       install:
