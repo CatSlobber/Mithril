@@ -18,9 +18,9 @@ modules:
         destination: /usr/share/icons
 
   - type: akmods
-      base: main
-      install:
-        - xone
+    base: main
+    install:
+      - xone
 
   - type: dnf
       install:
